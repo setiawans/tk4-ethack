@@ -1,0 +1,54 @@
+services:
+  web:
+    build: .
+    container_name: node_app
+    restart: always
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "9007:3000"
+    environment:
+      - PORT=3000
+      - DB_HOST=db
+      - DB_PORT=5432
+      - DB_USER=ethackuser
+      - DB_PASSWORD=ethackpassword
+      - DB_NAME=ethackdb
+      - SESSION_SECRET=4c3cc026c09743926bed9bfaadd0745792c17e8f80f4c699fdc3d1451a70ac33
+      - NODE_ENV=developement
+      - FLAG=CSCE604258{ez_error_oracle_based_sqli_for_you_to_learn_about_c4a4a41f2b}
+      - ADMIN_PASSWORD=2d853cd7ab14b2a109db48d57bee9175356c53e7399d7e14de59500a99b5afc3
+    volumes:
+      - ./src:/app
+      - /app/node_modules
+    command: [ "npm", "run", "start" ]
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 512M
+
+  db:
+    image: postgres:15
+    container_name: postgres_db
+    restart: always
+    environment:
+      POSTGRES_USER: ethackuser
+      POSTGRES_PASSWORD: ethackpassword
+      POSTGRES_DB: ethackdb
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U ethackuser -d ethackdb" ]
+      interval: 5s
+      timeout: 2s
+      retries: 5
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 512M
+
+volumes:
+  pg_data:
