@@ -275,10 +275,13 @@ input::placeholder {
     border: 1px solid rgba(0, 255, 136, 0.3);
     border-radius: 8px;
     padding: 1.2rem;
-    margin: 1.5rem 0;
+    margin: 1.5rem -1.5rem; 
     position: relative;
     overflow: hidden;
+    width: calc(100% + 3rem); 
+    box-sizing: border-box;
 }
+
 
 .flag-container::before {
     content: "";
@@ -302,6 +305,8 @@ input::placeholder {
     font-family: 'Exo 2', sans-serif;
     letter-spacing: 1px;
     position: relative;
+    word-break: break-all; 
+    overflow-wrap: break-word; 
 }
 
 .flag-label {
