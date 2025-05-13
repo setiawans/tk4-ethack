@@ -3,19 +3,20 @@
 <head>
     <title>Dashboard</title>
     <link rel="stylesheet" href="/css/styles.css">
-    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="flex flex-col items-center justify-center h-screen bg-gray-100">
-    <div class="w-96 p-6 bg-white shadow-md rounded-md text-center">
-        <h2 class="text-2xl font-bold text-gray-800">Welcome</h2>
-        <p class="text-gray-700 mt-2">You are logged in!</p>
+<body>
+    <div class="futuristic-container">
+        <div class="status-indicator"></div>
+        <h2>Welcome</h2>
+        <p class="status-message">Authentication successful!</p>
 
         <% if (email == 'kelompok8@ethack.id') { %>
-            <p class="mt-4 text-red-500 font-bold"><strong>Flag:</strong> <%= flag %> </p>
+            <div class="flag-container">
+                <p class="flag-text"><span class="flag-label">FLAG:</span><%= flag %></p>
+            </div>
         <% } %>
 
-        <a href="/auth/logout" 
-            class="mt-6 inline-block w-full bg-red-500 text-white font-bold py-2 rounded-md hover:bg-red-600">
+        <a href="/auth/logout" class="futuristic-button logout">
             Logout
         </a>
     </div>

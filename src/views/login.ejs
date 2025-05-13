@@ -3,36 +3,33 @@
 <head>
     <title>Login</title>
     <link rel="stylesheet" href="/css/styles.css">
-    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="flex flex-col items-center justify-center h-screen bg-gray-100">
-    <div class="w-96 p-6 bg-white shadow-md rounded-md">
-        <h2 class="text-2xl font-bold text-center text-gray-800">Login</h2>
+<body>
+    <div class="futuristic-container">
+        <h2>Login</h2>
 
         <% if (error) { %>
-            <p class="text-red-500 font-bold text-center mt-2"><%= error %></p>
+            <div class="error-message"><%= error %></div>
         <% } %>
 
-        <form action="/auth/login" method="POST" class="mt-4 space-y-4">
-            <div>
-                <label for="email" class="font-bold text-gray-700">Email</label>
-                <input type="email" name="email" id="email" placeholder="Email" required
-                    class="w-full p-2 mt-1 border rounded-md focus:ring-2 focus:ring-blue-500 font-bold">
+        <form action="/auth/login" method="POST">
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email" placeholder="Enter your email" required>
             </div>
 
-            <div>
-                <label for="password" class="font-bold text-gray-700">Password</label>
-                <input type="password" name="password" id="password" placeholder="Password" required
-                    class="w-full p-2 mt-1 border rounded-md focus:ring-2 focus:ring-blue-500 font-bold">
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" name="password" id="password" placeholder="Enter your password" required>
             </div>
 
-            <button type="submit" class="w-full bg-blue-500 text-white font-bold py-2 rounded-md hover:bg-blue-600">
+            <button type="submit" class="futuristic-button">
                 Login
             </button>
         </form>
 
-        <p class="mt-4 text-center text-gray-700">
-            Don't have an account? <a href="/auth/register" class="text-blue-500 font-bold">Register</a>
+        <p class="futuristic-link">
+            No account? <a href="/auth/register">Register Now</a>
         </p>
     </div>
 </body>
