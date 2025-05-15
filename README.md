@@ -1,6 +1,6 @@
 # trial and error
 
-by kelompok-8
+by Kelompok 8
 
 ---
 

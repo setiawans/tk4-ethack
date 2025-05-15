@@ -7,7 +7,7 @@ services:
       db:
         condition: service_healthy
     ports:
-      - "9007:3000"
+      - "8888:3000"
     environment:
       - PORT=3000
       - DB_HOST=db
